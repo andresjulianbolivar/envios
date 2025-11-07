@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'envios.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'provesidb'),
+        'USER': os.environ.get('DB_USER', 'abolivarc'),
+        'PASSWORD': os.environ.get('DB_PASS', 'Anjuboca200510'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': '5432',
     }
 }
 
